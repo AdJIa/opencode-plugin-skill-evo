@@ -240,7 +240,7 @@ ${transcript}`
       const inventory = [...projSkills, ...globSkills]
         .map(s => `- ${s.id}: ${s.description}`).join("\n")
 
-      log(`进化 ${sessionID}: turns=${userTurns} model=${model.providerID}/${model.id} 现有技能=${inventory.length}`)
+      log(`进化 ${sessionID}: turns=${userTurns} model=${model.providerID}/${model.id} 现有技能=${projSkills.length + globSkills.length}`)
       let raw: string
       try {
         raw = await genText(model, judgePrompt(truncate(transcript, o.transcriptChars), inventory, allowed))
